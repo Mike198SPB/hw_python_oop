@@ -114,9 +114,9 @@ class SportsWalking(Training):
 
 
 def read_package(workout_type: str, data: tuple) -> Training:
-    training_type: dict = {'SWM': Swimming,
-                           'RUN': Running,
-                           'WLK': SportsWalking}
+    training_type = {'SWM': Swimming,
+                     'RUN': Running,
+                     'WLK': SportsWalking}
     training = training_type[workout_type](*data)
     return training
 
@@ -126,7 +126,7 @@ def main(training: Training) -> str:
     print(info.get_message())
 
 
-packages: list[tuple] = [
+packages = [
     ('SWM', [720, 1, 80, 25, 40]),
     ('RUN', [15000, 1, 75]),
     ('WLK', [9000, 1, 75, 180]),
