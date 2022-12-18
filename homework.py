@@ -117,7 +117,8 @@ def read_package(workout_type: str, data: tuple) -> Training:
     training_type: dict = {'SWM': Swimming,
                            'RUN': Running,
                            'WLK': SportsWalking}
-    return training_type[workout_type](*data)
+    training = training_type[workout_type](*data)
+    return training
 
 
 def main(training: Training) -> str:
