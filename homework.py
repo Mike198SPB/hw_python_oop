@@ -121,9 +121,8 @@ def read_package(workout_type: str, data: tuple) -> Training:
         training_type[workout_type]
     except KeyError:
         print('В исходных данных определен некорректный тип тренировки')
-    else:
-        training = training_type[workout_type](*data)
-        return training
+    training = training_type[workout_type](*data)
+    return training
 
 
 def main(training: Training) -> str:
