@@ -119,10 +119,12 @@ def read_package(workout_type: str, data: tuple) -> Training:
                      'WLK': SportsWalking}
     try:
         training_type[workout_type]
+        training = training_type[workout_type](*data)
+        return training
+
     except KeyError:
-        print('В исходных данных определен некорректный тип тренировки')
-    training = training_type[workout_type](*data)
-    return training
+        print('В исходных данных определен некорректный тип тренировки',
+              workout_type)
 
 
 def main(training: Training) -> str:
@@ -139,4 +141,5 @@ packages = [
 if __name__ == '__main__':
     for workout_type, data in packages:
         training = read_package(workout_type, data)
-        main(training)
+        if training:
+            main(training)
